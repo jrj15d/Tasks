@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Tasks.Models;
 
 namespace TasksWeb.Controllers
@@ -20,10 +19,10 @@ namespace TasksWeb.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Tasks.Models.Task> Get()
+        public IEnumerable<Task> Get()
         {
-            Tasks.Models.Task task = new Tasks.Models.Task();
-            return Enumerable.Range(1, 5).Select(index => new Tasks.Models.Task
+            Task task = new Task();
+            return Enumerable.Range(1, 5).Select(index => new Task
             {
                 Id = new Guid(),
                 Title = "Example Title",
