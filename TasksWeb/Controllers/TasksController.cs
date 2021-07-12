@@ -21,15 +21,7 @@ namespace TasksWeb.Controllers
         [HttpGet]
         public IEnumerable<Task> Get()
         {
-            Task task = new Task();
-            return Enumerable.Range(1, 5).Select(index => new Task
-            {
-                Id = new Guid(),
-                Title = "Example Title",
-                Description = "Example Desc",
-                Completed = false
-            })
-            .ToArray();
+            return TaskList.Tasks;
         }
     }
 }
