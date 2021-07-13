@@ -12,12 +12,12 @@ namespace Tasks.Models
         public bool Completed { get; set; }
 
         public Task() { }
-        public Task(string title, string description, bool completed)
+        public Task(string title, string description)
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
             Title = title;
             Description = description;
-            Completed = completed;
+            Completed = false;
         }
     }
 }

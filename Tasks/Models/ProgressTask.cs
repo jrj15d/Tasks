@@ -26,8 +26,8 @@ namespace Tasks.Models
         }
 
         public ProgressTask() { }
-        public ProgressTask(string title, string description, bool completed, DateTime startDate, DateTime endDate, float progress)
-            : base(title, description, completed)
+        public ProgressTask(string title, string description, DateTime startDate, DateTime endDate, float progress)
+            : base(title, description)
         {
             StartDate = startDate;
             EndDate = endDate;
