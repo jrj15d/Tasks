@@ -11,12 +11,14 @@ namespace TasksWeb
         static TaskList()
         {
             Tasks = new List<Task>();
-            Tasks.Add(new Task { 
-                Id = new Guid(),
-                Title = "Clean my room",
-                Description = "Make my bed, dust the furniture, and sweep the floor",
-                Completed = false
-            });
+            Tasks.Add(new Task("Clean my room", "Make my bed, dust the furniture, and sweep the floor"));
+        }
+
+        public static Task Add(Task task)
+        {
+            Task t = new Task(task.Title, task.Description);
+            Tasks.Add(t);
+            return t;
         }
     }
 }
