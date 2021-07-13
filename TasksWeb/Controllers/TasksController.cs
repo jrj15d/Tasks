@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tasks.Models;
+using Newtonsoft.Json;
 
 namespace TasksWeb.Controllers
 {
@@ -21,7 +22,20 @@ namespace TasksWeb.Controllers
         [HttpGet]
         public IEnumerable<Task> Get()
         {
+            _logger.LogInformation("Getting all tasks");
             return TaskList.Tasks;
+        }
+
+        [HttpPost("{task}")]
+        public Task Post(string task)
+        {
+            TaskDTO dto = JsonConvert.DeserializeObject<TaskDTO>(task);
+            _logger.LogInformation($"Adding new task: {dto.Title}");
+
+            Task t = new Task(dto.Title, dto.Description);
+            TaskList.Add(t);
+            return t;
+            
         }
     }
 }
